@@ -7,6 +7,7 @@
       </div>
       <div>
         <b-btn to="/item/manage" variant="link">Главная</b-btn>
+        <b-btn to="/item/history" variant="link">История</b-btn>
       </div>
     </div>
     <NuxtChild class="d-flex w-100 h-100 overflow-hidden shadow"></NuxtChild>

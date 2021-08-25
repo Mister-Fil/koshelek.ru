@@ -5,6 +5,7 @@ export const state = () => ({
     items: [],
   },
   favorites: [],
+  logs: [],
 })
 
 export const actions = {
@@ -18,10 +19,12 @@ export const actions = {
   addFavorite({ commit }, item) {
     commit('addFavorite', item)
     commit('removeItemItems', item.id)
+    commit('addLogs', { event: 'added', item })
   },
   removeFavorite({ commit }, item) {
     commit('removeFavorite', item.id)
     commit('addItemItems', item)
+    commit('addLogs', { event: 'removed', item })
   },
 }
 
@@ -47,6 +50,13 @@ export const mutations = {
   removeFavorite(state, itemId) {
     const itemIndex = _.findIndex(state.favorites, ['id', itemId])
     if (itemIndex >= 0) state.favorites.splice(itemIndex, 1)
+  },
+  addLogs(state, { event, item }) {
+    state.logs.push({
+      event,
+      item,
+      date: Date.now(),
+    })
   },
 }
 
