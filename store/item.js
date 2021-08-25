@@ -11,7 +11,7 @@ export const state = () => ({
 export const actions = {
   fetchItems({ commit }) {
     return this.$axios
-      .get('http://jsonplaceholder.typicode.com/photos')
+      .get('https://jsonplaceholder.typicode.com/photos')
       .then(({ data }) => {
         commit('setItems', data)
       })
