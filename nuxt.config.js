@@ -5,6 +5,9 @@ export default {
 
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
+  router: {
+    base: '/koshelek.ru/',
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -22,7 +25,11 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    { src: '~/plugins/DateTime' },
+    { src: '~/plugins/Duration' },
+    { src: '~/plugins/Interval' },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -42,6 +49,13 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
   ],
+
+  bootstrapVue: {
+    bootstrapCSS: false,
+    bootstrapVueCSS: false,
+    // icons: true,
+    // components: ['BIcon', 'BIconAlertFill', 'BIconCalendar', 'BIconGears'],
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
