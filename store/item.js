@@ -6,6 +6,10 @@ export const state = () => ({
   },
   favorites: [],
   logs: [],
+  filters: {
+    name: '',
+    event: '',
+  },
 })
 
 export const actions = {
@@ -58,9 +62,15 @@ export const mutations = {
       date: Date.now(),
     })
   },
+  setFilter(state, { fieldName, value }) {
+    state.filters[fieldName] = value
+  },
 }
 
 export const getters = {
+  getEventFilter(state) {
+    return state.filters.event
+  },
   getItem(state) {
     return state.item
   },
@@ -69,5 +79,40 @@ export const getters = {
   },
   getLogs(state) {
     return state.logs
+  },
+  getLogsFilter(state, getters) {
+    const items = getters.getLogs.filter((item) => {
+      if (state.filters.event !== '') {
+        return state.filters.event === item.event
+      }
+      return true
+    })
+    return items[0] ? items : [{ id: 0, name: 'Нет данных' }]
+  },
+  getItemItemsFilter(state, getters) {
+    const items = getters.getItem.items.filter((item) => {
+      if (state.filters.name.length >= 1) {
+        return item.name.includes(state.filters.name)
+      }
+      return true
+    })
+    return items[0] ? items : [{ id: 0, name: 'Нет данных' }]
+  },
+  getItemItemsFilterSort(state, getters) {
+    return getters.getItemItemsFilter.sort((a, b) => {
+      if (
+        a.name.split(state.filters.name).length - 1 <
+        b.name.split(state.filters.name).length - 1
+      ) {
+        return 1
+      }
+      if (
+        a.name.split(state.filters.name).length - 1 >
+        b.name.split(state.filters.name).length - 1
+      ) {
+        return -1
+      }
+      return 0
+    })
   },
 }
