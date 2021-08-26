@@ -87,7 +87,7 @@ export const getters = {
       }
       return true
     })
-    return items[0] ? items : [{ id: 0, name: 'Нет данных' }]
+    return items[0] ? items : []
   },
   getItemItemsFilter(state, getters) {
     const items = getters.getItem.items.filter((item) => {
