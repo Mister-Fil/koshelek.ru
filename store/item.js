@@ -71,6 +71,9 @@ export const getters = {
   getEventFilter(state) {
     return state.filters.event
   },
+  getNameFilter(state) {
+    return state.filters.name
+  },
   getItem(state) {
     return state.item
   },

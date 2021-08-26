@@ -6,6 +6,7 @@
         <div class="flex-fill">
           <b-input
             v-model="filters.name"
+            type="search"
             placeholder="Фильтровать элементы списка"
           ></b-input>
         </div>
@@ -39,8 +40,11 @@ export default {
       },
     }
   },
+  mounted() {
+    this.filters.name = this.$store.getters['item/getNameFilter']
+  },
   watch: {
-    'filter.name'(newValue) {
+    'filters.name'(newValue) {
       this.setItemFilter('name', newValue)
     },
   },
