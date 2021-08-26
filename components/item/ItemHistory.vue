@@ -6,21 +6,21 @@
         <b-btn
           :disabled="getEventFilter === ''"
           variant="link"
-          @click="setItemFilter('event', '')"
+          @click="setPageFilter('event', '')"
         >
           Вся история
         </b-btn>
         <b-btn
           :disabled="getEventFilter === 'added'"
           variant="link"
-          @click="setItemFilter('event', 'added')"
+          @click="setPageFilter('event', 'added')"
         >
           История добавлений
         </b-btn>
         <b-btn
           :disabled="getEventFilter === 'removed'"
           variant="link"
-          @click="setItemFilter('event', 'removed')"
+          @click="setPageFilter('event', 'removed')"
         >
           История удалений
         </b-btn>
@@ -91,6 +91,11 @@ export default {
       ],
     }
   },
+  mounted() {
+    if (this.$route.query.event) {
+      this.setItemFilter('event', this.$route.query.event)
+    }
+  },
   computed: {
     getEventFilter() {
       return this.$store.getters['item/getEventFilter']
@@ -100,6 +105,10 @@ export default {
     },
   },
   methods: {
+    setPageFilter(fieldName, value) {
+      this.$router.push('/item/history?event=' + value)
+      this.setItemFilter(fieldName, value)
+    },
     setItemFilter(fieldName, value) {
       this.$store.commit('item/setFilter', {
         fieldName,
