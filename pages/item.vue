@@ -16,8 +16,13 @@
 
 <script>
 export default {
-  name: 'item',
+  mounted() {
+    this.fetchItems()
+  },
+  methods: {
+    fetchItems() {
+      this.$store.dispatch('item/fetchItems')
+    },
+  },
 }
 </script>
-
-<style scoped></style>
