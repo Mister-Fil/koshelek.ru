@@ -29,6 +29,7 @@ export default {
     { src: '~/plugins/DateTime' },
     { src: '~/plugins/Duration' },
     { src: '~/plugins/Interval' },
+    { src: '~/plugins/vue-drag-resize' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
