@@ -42,10 +42,10 @@ export const mutations = {
     })
   },
   addItemItems(state, item) {
-    state.item.items.push(item)
+    state.item.items.unshift(item)
   },
   addFavorite(state, item) {
-    state.favorites.push(item)
+    state.favorites.unshift(item)
   },
   removeItemItems(state, itemId) {
     const itemIndex = _.findIndex(state.item.items, ['id', itemId])
@@ -56,7 +56,7 @@ export const mutations = {
     if (itemIndex >= 0) state.favorites.splice(itemIndex, 1)
   },
   addLogs(state, { event, item }) {
-    state.logs.push({
+    state.logs.unshift({
       event,
       item,
       date: Date.now(),
