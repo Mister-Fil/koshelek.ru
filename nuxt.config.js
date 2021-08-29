@@ -1,4 +1,6 @@
+// eslint-disable-next-line nuxt/no-cjs-in-config
 const webpack = require('webpack')
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -30,6 +32,7 @@ export default {
     { src: '~/plugins/Duration' },
     { src: '~/plugins/Interval' },
     { src: '~/plugins/vue-drag-resize' },
+    { src: '~/plugins/vue-native-websocket' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

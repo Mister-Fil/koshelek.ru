@@ -99,3 +99,11 @@ li.nav-item {
     color: #116525;
   }
 }
+
+.b-table-sticky-header{
+  height: 100%;
+}
+
+.b-table-empty-row > td > div {
+  height: 100%;
+}
