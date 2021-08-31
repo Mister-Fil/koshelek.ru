@@ -1,24 +1,23 @@
 <template>
-  <div class="d-flex flex-column w-100 h-100 overflow-hidden">
+  <div class="flex-column">
     <div class="d-flex p-2">
-      <div class="h3 p-2 m-0 flex-fill">История</div>
-      <div class="p-1">
+      <div class="p-1 text-nowrap overflow-auto">
         <b-btn
-          :disabled="getEventFilter === ''"
+          v-show="getEventFilter !== ''"
           variant="link"
           @click="setPageFilter('event', '')"
         >
           Вся история
         </b-btn>
         <b-btn
-          :disabled="getEventFilter === 'added'"
+          v-show="getEventFilter !== 'added'"
           variant="link"
           @click="setPageFilter('event', 'added')"
         >
           История добавлений
         </b-btn>
         <b-btn
-          :disabled="getEventFilter === 'removed'"
+          v-show="getEventFilter !== 'removed'"
           variant="link"
           @click="setPageFilter('event', 'removed')"
         >
@@ -91,11 +90,6 @@ export default {
       ],
     }
   },
-  mounted() {
-    if (this.$route.query.event) {
-      this.setItemFilter('event', this.$route.query.event)
-    }
-  },
   computed: {
     getEventFilter() {
       return this.$store.getters['item/getEventFilter']
@@ -103,6 +97,11 @@ export default {
     getLogsFilter() {
       return this.$store.getters['item/getLogsFilter']
     },
+  },
+  mounted() {
+    if (this.$route.query.event) {
+      this.setItemFilter('event', this.$route.query.event)
+    }
   },
   methods: {
     setPageFilter(fieldName, value) {

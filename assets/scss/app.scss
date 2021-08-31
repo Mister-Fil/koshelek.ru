@@ -44,6 +44,7 @@ html, body, #__nuxt, #__layout {
 .btn.b-check {
   padding: 1px 1px 0 1px;
   margin: 0;
+
   &:hover {
     background: none;
   }
@@ -68,17 +69,20 @@ html, body, #__nuxt, #__layout {
 .b-form-datepicker {
   width: 200px;
 }
+
 table#manager-table .flip-list-move {
   transition: transform 1s;
 }
+
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -khtml-user-select: none; /* Konqueror HTML */
   -moz-user-select: none; /* Old versions of Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                   supported by Chrome, Edge, Opera and Firefox */
 
   -webkit-user-drag: none;
   -khtml-user-drag: none;
@@ -100,10 +104,32 @@ li.nav-item {
   }
 }
 
-.b-table-sticky-header{
+.b-table-sticky-header {
   height: 100%;
 }
 
 .b-table-empty-row > td > div {
   height: 100%;
+}
+
+.btn:not(:disabled):not(.disabled):active:focus,
+.btn:not(:disabled):not(.disabled).active:focus {
+  box-shadow: none;
+}
+
+.btn {
+  &.btn-link {
+    margin: 0.375rem 0.75rem;
+    padding: 0 0 0 0;
+    box-shadow: none;
+
+    &:focus, &:active {
+      box-shadow: none;
+    }
+
+    &.nuxt-link-active {
+      border-bottom: 1px dashed #bcbbbb;
+      color: #208637;
+    }
+  }
 }
