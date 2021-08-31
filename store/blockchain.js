@@ -34,8 +34,8 @@ export const mutations = {
     state.messages.utx.unshift(payload)
   },
   updateSumUtx(state, payload) {
-    state.data.sumUtx = payload.inputs.reduce((sum, item) => {
-      return sum + item.prev_out.value
+    state.data.sumUtx = payload.out.reduce((sum, itemOut) => {
+      return sum + itemOut.value
     }, state.data.sumUtx)
   },
   clearUtx(state) {

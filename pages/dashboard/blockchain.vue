@@ -99,7 +99,7 @@
 
         <template #cell(sum)="data">
           <b-badge variant="success" class="w-100 text-nowrap">
-            {{ inputSum(data.item.inputs) }} BTC
+            {{ inputSum(data.item) }} BTC
           </b-badge>
         </template>
       </b-table>
@@ -155,10 +155,10 @@ export default {
     },
   },
   methods: {
-    inputSum(inputs) {
+    inputSum(itemUtx) {
       let sum = 0
-      sum = inputs.reduce((sum, item) => {
-        return sum + item.prev_out.value
+      sum = itemUtx.out.reduce((sum, itemOut) => {
+        return sum + itemOut.value
       }, 0)
       return sum / 100000000
     },
