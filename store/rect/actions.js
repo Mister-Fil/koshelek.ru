@@ -25,7 +25,8 @@ import {
 } from './mutation-types'
 
 export default {
-  setActive({ commit, state }, { id }) {
+  setActive({ commit, state }, { rectId }) {
+    const id = _.findIndex(state.rects, ['id', rectId])
     for (let i = 0, l = state.rects.length; i < l; i++) {
       if (i === id) {
         commit(ENABLE_ACTIVE, i)
@@ -35,7 +36,8 @@ export default {
       commit(DISABLE_ACTIVE, i)
     }
   },
-  unsetActive({ commit }, { id }) {
+  unsetActive({ commit, state }, { rectId }) {
+    const id = _.findIndex(state.rects, ['id', rectId])
     commit(DISABLE_ACTIVE, id)
   },
 
@@ -148,7 +150,8 @@ export default {
     }
   },
 
-  changeZToTop({ commit, state }, { id }) {
+  changeZToTop({ commit, state }, { rectId }) {
+    const id = _.findIndex(state.rects, ['id', rectId])
     if (state.rects[id].zIndex === state.rects.length) {
       return
     }

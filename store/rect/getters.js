@@ -9,4 +9,10 @@ export default {
     }
     return null
   },
+  getRectBlank(state) {
+    return state.rectBlank
+  },
+  getRectItems(state) {
+    return state.rects
+  },
 }

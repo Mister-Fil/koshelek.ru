@@ -153,7 +153,20 @@ $theme-colors: map-merge(
                         "coral": $coral,
                         "light-coral": $light-coral,
                         "ultra" : $white,
-                        "black" : $black
+                        "black" : $black,
+                        "blue": $blue,
+                        "indigo": $indigo,
+                        "purple": $purple,
+                        "pink": $pink,
+                        "red": $red,
+                        "orange": $orange,
+                        "yellow": $yellow,
+                        "green": $green,
+                        "teal": $teal,
+                        "cyan": $cyan,
+                        "white": $white,
+                        "gray": $gray-600,
+                        "gray-dark": $gray-800,
                 ),
                 $theme-colors
 );

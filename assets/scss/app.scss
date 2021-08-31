@@ -54,15 +54,21 @@ html, body, #__nuxt, #__layout {
   }
 }
 
-.dropdown-custom {
-
+.dropdown-tools {
   .dropdown-menu.show {
     //display: block;
     //min-width: 100%;
-    max-height: 320px;
+    max-height: 420px;
     overflow: auto;
     max-width: 450px;
+    min-width: 250px;
 
+  }
+}
+.dropdown-confirm {
+  .dropdown-menu.show {
+    max-width: 100px;
+    min-width: 100px;
   }
 }
 
@@ -112,10 +118,10 @@ li.nav-item {
   height: 100%;
 }
 
-.btn:not(:disabled):not(.disabled):active:focus,
-.btn:not(:disabled):not(.disabled).active:focus {
-  box-shadow: none;
-}
+//.btn:not(:disabled):not(.disabled):active:focus,
+//.btn:not(:disabled):not(.disabled).active:focus {
+//  box-shadow: none;
+//}
 
 .btn {
   &.btn-link {
@@ -123,8 +129,9 @@ li.nav-item {
     padding: 0 0 0 0;
     box-shadow: none;
 
-    &:focus, &:active {
+    &:focus, &:active, :active:focus, .active:focus {
       box-shadow: none;
+      text-decoration: none;
     }
 
     &.nuxt-link-active {

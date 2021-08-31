@@ -107,4 +107,16 @@ export default {
   [CHANGE_MINW](state, payload) {
     state.rects[payload.id].minw = payload.minw
   },
+
+  setRect(state, rect) {
+    const rectIndex = _.findIndex(state.rects, ['id', rect.id])
+    if (rectIndex < 0) {
+      state.rects.push(rect)
+    }
+  },
+
+  removeRect(state, rectId) {
+    const rectIndex = _.findIndex(state.rects, ['id', rectId])
+    if (rectIndex >= 0) state.rects.splice(rectIndex, 1)
+  },
 }
