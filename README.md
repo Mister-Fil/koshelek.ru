@@ -1,4 +1,4 @@
-# koshelekru
+# koshelek.ru
 
 ## Build Setup
 

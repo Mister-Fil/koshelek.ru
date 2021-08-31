@@ -13,7 +13,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'koshelekru',
+    title: 'koshelek.ru',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -67,7 +67,13 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: 'en',
+      name: 'koshelek.ru',
+      short_name: 'koshelek.ru',
+      description: 'koshelek.ru',
+      lang: 'ru',
+      background_color: '#ffffff',
+      theme_color: '#ffffff',
+      // start_url: '/',
     },
   },
 
