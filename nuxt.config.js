@@ -34,6 +34,7 @@ export default {
     { src: '~/plugins/vue-drag-resize' },
     { src: '~/plugins/vue-native-websocket' },
     { src: '~/plugins/uuidGen' },
+    { src: '~/plugins/persistedState.client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

@@ -19,7 +19,8 @@
     "luxon": "^1.28.0",
     "nuxt": "^2.15.7",
     "vue-drag-resize": "^1.5.4",
-    "vue-native-websocket": "^2.0.15"
+    "vue-native-websocket": "^2.0.15",
+    "vuex-persistedstate": "^4.0.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",
