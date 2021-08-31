@@ -1,7 +1,7 @@
 {
-  "name": "koshelekru",
-  "short_name": "koshelekru",
-  "description": "## Build Setup",
+  "name": "koshelek.ru",
+  "short_name": "koshelek.ru",
+  "description": "koshelek.ru",
   "icons": [
     {
       "src": "/koshelek.ru/_nuxt/icons/icon_64x64.dcb47d.png",
@@ -49,5 +49,6 @@
   "start_url": "/koshelek.ru/?standalone=true",
   "display": "standalone",
   "background_color": "#ffffff",
-  "lang": "en"
+  "theme_color": "#ffffff",
+  "lang": "ru"
 }
