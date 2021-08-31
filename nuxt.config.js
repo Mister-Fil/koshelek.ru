@@ -33,6 +33,7 @@ export default {
     { src: '~/plugins/Interval' },
     { src: '~/plugins/vue-drag-resize' },
     { src: '~/plugins/vue-native-websocket' },
+    { src: '~/plugins/uuidGen' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
