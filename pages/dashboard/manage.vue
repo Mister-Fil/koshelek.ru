@@ -102,9 +102,16 @@
             </b-dd>
             <div class="flex-fill text-center pt-1">{{ rect.title }}</div>
           </div>
-          <div class="overflow-auto h-100 p-1">
-            <p>Тут всякие штучки</p>
-            <p>И тут много всяких штучек</p>
+          <div class="overflow-hidden h-100 p-1">
+            <template v-if="rect.id === 1">
+              <item-favorite-table></item-favorite-table>
+            </template>
+            <template v-if="rect.id === 2">
+              <item-history-table filter-event="added"></item-history-table>
+            </template>
+            <template v-if="rect.id === 3">
+              <item-history-table filter-event="removed"></item-history-table>
+            </template>
           </div>
           <div class="border-top border-secondary bg-light text-secondary px-1">
             <span>x{{ rect.left }} - y{{ rect.top }}</span>
@@ -147,39 +154,46 @@ export default {
       },
       windows: [
         {
-          id: '1',
-          title: 'Окно один',
+          id: 1,
+          title: 'Окно избранное',
           isView: false,
+          isDefault: true,
         },
         {
-          id: '2',
-          title: 'Окно два',
+          id: 2,
+          title: 'Окно история добавлений',
           isView: false,
+          isDefault: true,
         },
         {
-          id: '3',
-          title: 'Окно три',
+          id: 3,
+          title: 'Окно история удалений',
           isView: false,
+          isDefault: true,
         },
         {
-          id: '4',
+          id: 4,
           title: 'Окно четыре',
           isView: false,
+          isDefault: false,
         },
         {
-          id: '5',
+          id: 5,
           title: 'Окно пять',
           isView: false,
+          isDefault: false,
         },
         {
-          id: '6',
+          id: 6,
           title: 'Окно шесть',
           isView: false,
+          isDefault: false,
         },
         {
-          id: '7',
+          id: 7,
           title: 'Окно семь',
           isView: false,
+          isDefault: false,
         },
       ],
       listWidth: 0,
@@ -212,9 +226,23 @@ export default {
       this.listWidth = listEl.clientWidth
       this.listHeight = listEl.clientHeight
     })
+    if (!this.isAnyOpenWindow()) {
+      this.openDefaultWindows()
+    }
   },
 
   methods: {
+    isAnyOpenWindow() {
+      const index = _.findIndex(this.windows, ['isView', true])
+      return index > -1
+    },
+    openDefaultWindows() {
+      for (const itemWindow of this.getCheckWindows) {
+        if (itemWindow.isDefault) {
+          this.openWindowBlock(itemWindow)
+        }
+      }
+    },
     openAllWindows() {
       for (const itemWindow of this.getCheckWindows) {
         if (!itemWindow.isView) {
