@@ -12,9 +12,7 @@
         </div>
       </div>
       <div class="overflow-hidden p-2 h-100">
-        <div class="overflow-auto h-100">
-          <item-table></item-table>
-        </div>
+        <item-table></item-table>
       </div>
     </div>
     <div class="d-flex flex-column p-2 w-100 h-100 overflow-hidden">
