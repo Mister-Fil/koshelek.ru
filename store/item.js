@@ -34,7 +34,7 @@ export const actions = {
 
 export const mutations = {
   setItems(state, items) {
-    state.item.items = items.slice(0, 1000).map((item) => {
+    state.item.items = items.slice(0, 5000).map((item) => {
       return {
         id: item.id,
         name: item.title,

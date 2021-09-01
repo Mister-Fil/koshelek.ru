@@ -22,9 +22,7 @@
         <div class="h3 text-center px-2 py-1 m-0">Избранное</div>
       </div>
       <div class="overflow-hidden p-2 h-100">
-        <div class="overflow-auto h-100">
-          <item-favorite-table></item-favorite-table>
-        </div>
+        <item-favorite-table></item-favorite-table>
       </div>
     </div>
   </div>
