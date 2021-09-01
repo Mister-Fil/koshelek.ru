@@ -95,7 +95,9 @@ export const getters = {
   getItemItemsFilter(state, getters) {
     const items = getters.getItem.items.filter((item) => {
       if (state.filters.name.length >= 1) {
-        return item.name.includes(state.filters.name)
+        return item.name
+          .toLowerCase()
+          .includes(state.filters.name.toLowerCase())
       }
       return true
     })
