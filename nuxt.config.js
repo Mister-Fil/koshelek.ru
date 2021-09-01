@@ -31,7 +31,7 @@ export default {
     { src: '~/plugins/DateTime' },
     { src: '~/plugins/Duration' },
     { src: '~/plugins/Interval' },
-    { src: '~/plugins/vue-drag-resize' },
+    { src: '~/plugins/VueDragResize' },
     { src: '~/plugins/vue-native-websocket' },
     { src: '~/plugins/uuidGen' },
     { src: '~/plugins/persistedState.client' },
