@@ -26,14 +26,14 @@ export default {
   name: 'ItemTable',
   data() {
     return {
-      page: 1,
+      page: 3,
     }
   },
   computed: {
     getItemItemsFilterSort() {
       return this.$store.getters['item/getItemItemsFilterSort'].slice(
         0,
-        this.page * 50
+        this.page * 10
       )
     },
   },
@@ -59,10 +59,10 @@ export default {
         const page = Math.ceil(
           this.$refs.scroll.scrollTop / this.$refs.scroll.clientHeight
         )
-        if (page !== 0) {
+        if (page > 2) {
           this.page = page
         } else {
-          this.page = 1
+          this.page = 3
         }
       }
     },
