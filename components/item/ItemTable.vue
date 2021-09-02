@@ -18,6 +18,7 @@
         </tr>
       </tbody>
     </table>
+    <div ref="last" class="text-center bg-light p-4">больше ничего нет</div>
   </div>
 </template>
 
@@ -26,9 +27,8 @@ export default {
   name: 'ItemTable',
   data() {
     return {
-      page: 3,
-      pageMin: 3,
-      limit: 25,
+      page: 1,
+      limit: 30,
     }
   },
   computed: {
@@ -40,32 +40,22 @@ export default {
     },
   },
   mounted() {
-    this.handleDebouncedScroll = _.debounce(this.handleScroll, 100)
-    this.$refs.scroll.addEventListener('scroll', this.handleDebouncedScroll)
+    this.handleThrottleScroll = _.throttle(this.handleScroll, 100)
+    this.$refs.scroll.addEventListener('scroll', this.handleThrottleScroll)
   },
   beforeDestroy() {
-    this.$refs.scroll.removeEventListener('scroll', this.handleDebouncedScroll)
+    this.$refs.scroll.removeEventListener('scroll', this.handleThrottleScroll)
   },
   methods: {
     addFavorite(item) {
       this.$store.dispatch('item/addFavorite', item)
     },
     handleScroll() {
-      const next =
-        this.$refs.scroll.scrollTop >
-        this.$refs.scroll.clientHeight * (this.page - 1)
-      const prev =
-        this.$refs.scroll.scrollTop <
-        this.$refs.scroll.clientHeight * (this.page - 3)
-      if (next || prev) {
-        const page = Math.ceil(
-          this.$refs.scroll.scrollTop / this.$refs.scroll.clientHeight
-        )
-        if (page > this.pageMin) {
-          this.page = page
-        } else {
-          this.page = this.pageMin
-        }
+      if (
+        this.$refs.scroll.clientHeight * 3 >
+        this.$refs.last.getBoundingClientRect().top
+      ) {
+        this.page++
       }
     },
   },
