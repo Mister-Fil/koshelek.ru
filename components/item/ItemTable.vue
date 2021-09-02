@@ -27,13 +27,15 @@ export default {
   data() {
     return {
       page: 3,
+      pageMin: 3,
+      limit: 25,
     }
   },
   computed: {
     getItemItemsFilterSort() {
       return this.$store.getters['item/getItemItemsFilterSort'].slice(
         0,
-        this.page * 10
+        this.page * this.limit
       )
     },
   },
@@ -59,10 +61,10 @@ export default {
         const page = Math.ceil(
           this.$refs.scroll.scrollTop / this.$refs.scroll.clientHeight
         )
-        if (page > 2) {
+        if (page > this.pageMin) {
           this.page = page
         } else {
-          this.page = 3
+          this.page = this.pageMin
         }
       }
     },
